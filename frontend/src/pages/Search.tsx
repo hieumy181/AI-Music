@@ -122,31 +122,38 @@ export const Search: React.FC = () => {
             <h2 className="text-2xl font-bold text-white mb-6">Browse All</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {genres.map((genre, index) => (
-                <Card
+                <div
                   key={genre}
                   className="relative overflow-hidden cursor-pointer hover:scale-105 transition-transform aspect-square"
-                  hover
                   onClick={() => setSelectedGenre(genre)}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`Select genre ${genre}`}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter' || e.key === ' ') setSelectedGenre(genre);
+                  }}
                 >
-                  <div 
-                    className="absolute inset-0 bg-gradient-to-br opacity-80"
-                    style={{
-                      backgroundImage: `linear-gradient(135deg, ${
-                        ['#1DB954', '#FF006E', '#8338EC', '#3A86FF', '#FFBE0B', '#FB5607', '#FF9F1C', '#2EC4B6'][index % 8]
-                      }, ${
-                        ['#1DB954DD', '#FF006EDD', '#8338ECDD', '#3A86FFDD', '#FFBE0BDD', '#FB5607DD', '#FF9F1CDD', '#2EC4B6DD'][index % 8]
-                      })`
-                    }}
-                  />
-                  <div className="relative z-10 p-4 h-full flex flex-col justify-between">
-                    <h3 className="text-white font-bold text-lg">{genre}</h3>
-                    <div className="self-end">
-                      <div className="w-16 h-16 bg-black/20 rounded-lg flex items-center justify-center">
-                        <div className="w-8 h-8 bg-white/30 rounded" />
+                  <Card hover className="h-full w-full">
+                    <div 
+                      className="absolute inset-0 bg-gradient-to-br opacity-80"
+                      style={{
+                        backgroundImage: `linear-gradient(135deg, ${
+                          ['#1DB954', '#FF006E', '#8338EC', '#3A86FF', '#FFBE0B', '#FB5607', '#FF9F1C', '#2EC4B6'][index % 8]
+                        }, ${
+                          ['#1DB954DD', '#FF006EDD', '#8338ECDD', '#3A86FFDD', '#FFBE0BDD', '#FB5607DD', '#FF9F1CDD', '#2EC4B6DD'][index % 8]
+                        })`
+                      }}
+                    />
+                    <div className="relative z-10 p-4 h-full flex flex-col justify-between">
+                      <h3 className="text-white font-bold text-lg">{genre}</h3>
+                      <div className="self-end">
+                        <div className="w-16 h-16 bg-black/20 rounded-lg flex items-center justify-center">
+                          <div className="w-8 h-8 bg-white/30 rounded" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Card>
+                  </Card>
+                </div>
               ))}
             </div>
           </section>

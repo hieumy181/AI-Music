@@ -57,12 +57,10 @@ export const Modal: React.FC<ModalProps> = ({
         <div
           className={cn(
             'relative bg-gray-800 rounded-lg shadow-xl border border-gray-700 w-full',
-            {
-              'max-w-md': size === 'sm',
-              'max-w-lg': size === 'md',
-              'max-w-2xl': size === 'lg',
-              'max-w-4xl': size === 'xl',
-            }
+            size === 'sm' && 'max-w-md',
+            size === 'md' && 'max-w-lg',
+            size === 'lg' && 'max-w-2xl',
+            size === 'xl' && 'max-w-4xl'
           )}
         >
           {title && (

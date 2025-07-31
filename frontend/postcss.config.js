@@ -1,1 +1,6 @@
-// This file is intentionally left blank.
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
