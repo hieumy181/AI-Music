@@ -1,5 +1,5 @@
 {
-  "name": "my-frontend-app",
+  "name": "frontend",
   "version": "1.0.0",
   "description": "A frontend application built with React and TypeScript.",
   "main": "src/main.tsx",
@@ -11,15 +11,14 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "typescript": "^4.4.3"
-  },
-  "devDependencies": {
-    "vite": "^2.5.0",
-    "eslint": "^7.32.0",
-    "postcss": "^8.3.6",
+    "react-router-dom": "^5.2.0",
     "tailwindcss": "^2.2.19"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "typescript": "^4.4.4",
+    "vite": "^2.6.4",
+    "eslint": "^7.32.0",
+    "postcss": "^8.3.6"
+  },
+  "license": "MIT"
 }
